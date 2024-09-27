@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div class="calc">
+        <div class="screen">
+            <input id="screen" type="text" readonly>
+        </div>
+        <div class="buttons">
+            <button class="btn orange c" onclick="clearScreen()">c</button>
+            <button class="btn orange" onclick="backSpace()">&larr;</button>
+            <button class="btn orange" onclick="appendValue('/')">&divide;</button>
+            <button class="btn" onclick="appendValue(7)">7</button>
+            <button class="btn" onclick="appendValue(8)">8</button>
+            <button class="btn" onclick="appendValue(9)">9</button>
+            <button class="btn orange" onclick="appendValue('*')">x</button>
+            <button class="btn" onclick="appendValue(4)">4</button>
+            <button class="btn" onclick="appendValue(5)">5</button>
+            <button class="btn" onclick="appendValue(6)">6</button>
+            <button class="btn orange" onclick="appendValue('-')">-</button>
+            <button class="btn" onclick="appendValue(1)">1</button>
+            <button class="btn" onclick="appendValue(2)">2</button>
+            <button class="btn" onclick="appendValue(3)">3</button>
+            <button class="btn orange" onclick="appendValue('+')">+</button>
+            <button class="btn" onclick="appendValue(7)">0</button>
+            <button class="btn orange equal" onclick="getAns()">=</button>
+        </div>
+    </div>
+    <script>
+        const screen = document.getElementById("screen");
+        function appendValue(v) {
+            screen.value += v;
+        }
+        function clearScreen() {
+            screen.value = "";
+        }
+        function backSpace() {
+            screen.value = screen.value.slice(0, -1);
+        }
+        function getAns(){
+            try{
+            let result = eval(screen.value);
+            screen.value = result;
+            }catch(event){
+                alert("invalid expression");
+                clearScreen();
+            }
+        }
+    </script>
+</body>
+
+</html>

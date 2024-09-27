@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <style>
+        body {
+            background-color: rgb(54, 14, 255);
+        }
+
+        .emojis h1 {
+            margin-left: 39%;
+            color: white;
+        }
+
+        .emojis ul {
+            display: flex;
+            margin-left: 35%;
+            gap: 20px;
+        }
+
+        .emojis ul li {
+            list-style-type: none;
+            font-size: 70px;
+            border: 3px solid white;
+            border-radius: 50%;
+        }
+
+        .play {
+            color: white;
+            display: none;
+        }
+
+        .play ul {
+            display: flex;
+            margin-left: 40%;
+            gap: 20px;
+        }
+
+        .play ul li {
+            list-style-type: none;
+            font-size: 20px;
+        }
+
+        .play h1 {
+            margin-left: 35%;
+        }
+
+        .score {
+            margin-left: 40%;
+            color: white;
+        }
+
+        #btn {
+            width: 200px;
+            height: 40px;
+            background-color: white;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="emojis">
+        <h1>Rock Paper Scissors</h1>
+        <ul id="cursor">
+            <li class="choose">&#9995;</li>
+            <li class="choose">&#9994;</li>
+            <li class="choose">&#9996;</li>
+        </ul>
+    </div>
+    <div class="play" id="plays">
+        <h1></h1>
+        <br>
+        <ul>
+            <li>You</li>
+            <li id="myMove"></li>
+            <li id="compMove"></li>
+            <li>Computer</li>
+        </ul>
+    </div>
+    <br>
+    <div class="score">
+        <p id="wins">Wins: 0, Ties: 0, Losses: 0</p>
+        <br>
+        <button id="btn">Reset Score</button>
+    </div>
+    <script>
+        const btn = document.getElementById("btn");
+        const cursor = document.getElementById("cursor");
+        let choose = document.getElementsByClassName("choose");
+        let myMove = document.getElementById("myMove");
+        let play = document.getElementById("plays");
+        let compMove = document.getElementById("compMove");
+
+        let win = 0;
+        let tie = 0;
+        let loss = 0;
+        let compIndex;
+
+        cursor.addEventListener("mouseover", function () {
+            cursor.style.cursor = "pointer";
+        });
+        btn.addEventListener("click", function () {
+            const wins = document.getElementById("wins");
+            win = 0;
+            tie = 0;
+            loss = 0;
+            wins.innerHTML = "Wins: " + win + ", Ties: " + tie + ", Losses: " + loss;
+            myMove.innerHTML = "";
+            compMove.innerHTML = "";
+        });
+        choose[0].addEventListener("click", function () {
+            myMove.innerHTML = "&#9995;";
+            play.style.display = "block";
+            compIndex = Math.floor(Math.random() * 3);
+            compMove.innerHTML = choose[compIndex].innerHTML;
+            if (compIndex == 0) {
+                tie++;
+            } else if (compIndex == 1) {
+                win++;
+            } else if (compIndex == 2) {
+                loss++;
+            }
+            wins.innerHTML = "Wins: " + win + ", Ties: " + tie + ", Losses: " + loss;
+        });
+        choose[1].addEventListener("click", function () {
+            myMove.innerHTML = "&#9994;";
+            play.style.display = "block";
+            compIndex = Math.floor(Math.random() * 3);
+            compMove.innerHTML = choose[compIndex].innerHTML;
+            if (compIndex == 1) {
+                tie++;
+            } else if (compIndex == 2) {
+                win++;
+            } else if (compIndex == 0) {
+                loss++;
+            }
+            wins.innerHTML = "Wins: " + win + ", Ties: " + tie + ", Losses: " + loss;
+        });
+        choose[2].addEventListener("click", function () {
+            myMove.innerHTML = "&#9996;";
+            play.style.display = "block";
+            compIndex = Math.floor(Math.random() * 3);
+            compMove.innerHTML = choose[compIndex].innerHTML;
+            if (compIndex == 2) {
+                tie++;
+            } else if (compIndex == 0) {
+                win++;
+            } else if (compIndex == 1) {
+                loss++;
+            }
+            wins.innerHTML = "Wins: " + win + ", Ties: " + tie + ", Losses: " + loss;
+        });
+    </script>
+</body>
+
+</html>

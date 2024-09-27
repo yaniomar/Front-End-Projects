@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coloring Grid</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+        }
+
+        #grid {
+            margin-left: 25px;
+            margin-top: 25px;
+            display: grid;
+            grid-template-columns: repeat(16, 37px);
+            grid-template-rows: repeat(16, 37px);
+            width: 592px;
+            height: 592px;
+        }
+
+        .squares {
+            width: 36px;
+            height: 36px;
+            background-color: white;
+            border: 1px solid black;
+        }
+
+        .colors {
+            width: 30px;
+            height: 30px;
+            margin: 5px;
+            border: 1px solid;
+            cursor: pointer;
+
+        }
+
+        .colorsContainer {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 20px;
+            background-color: antiquewhite;
+            height: 320px;
+        }
+
+        .coloringPad {
+            display: flex;
+            justify-content: start;
+            align-items: start;
+        }
+
+        #reset {
+            background-color: bisque;
+            border-radius: 10px;
+            height: 40px;
+            width: 300px;
+            margin-left: 125px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="coloringPad">
+        <section id="grid"></section>
+        <section class="colorsContainer">
+            <div class="colors" id="black" style="background-color: black;"></div>
+            <div class="colors" id="red" style="background-color: red;"></div>
+            <div class="colors" id="yellow" style="background-color: yellow;"></div>
+            <div class="colors" id="blue" style="background-color: blue;"></div>
+            <div class="colors" id="green" style="background-color: green;"></div>
+            <div class="colors" id="orange" style="background-color: orange;"></div>
+            <div class="colors" id="grey" style="background-color: grey;"></div>
+            <div class="colors" id="pink" style="background-color: pink;"></div>
+        </section>
+    </div>
+    <button id="reset">Reset Grid</button>
+    <script>
+        const grid = document.getElementById("grid");
+        const totalSquares = 256;
+        let currentColor = 'black';
+        let mouseDown = false;
+
+        document.body.addEventListener('mouseup', () => {
+            mouseDown = false;
+        });
+
+        for (let i = 0; i < totalSquares; i++) {
+            const square = document.createElement('div');
+            square.className = 'squares';
+            square.addEventListener("mousedown", function () {
+                mouseDown = true;
+                square.style.backgroundColor = currentColor;
+            });
+            square.addEventListener("mousemove", function () {
+                if (mouseDown) {
+                    square.style.backgroundColor = currentColor;
+                }
+            });
+            grid.appendChild(square);
+        }
+
+        const colorsContainer = document.querySelector(".colorsContainer");
+        colorsContainer.addEventListener("click", function (event) {
+            if (event.target.classList.contains('colors')) {
+                currentColor = event.target.style.backgroundColor;
+            }
+        });
+        const reset = document.getElementById("reset");
+        reset.addEventListener("click", function () {
+            const squares = document.querySelectorAll('.squares');
+            squares.forEach(square => {
+                square.style.backgroundColor = 'white';
+            });
+        });
+    </script>
+</body>
+
+</html>
