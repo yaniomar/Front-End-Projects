@@ -1,0 +1,245 @@
+body {
+    background-color: black;
+    position: relative;
+}
+
+.list {
+    width: 18%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-right: 1px solid grey;
+}
+
+#instagram {
+    font-family: "Dancing Script";
+    color: white;
+    margin-left: 40px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+pre {
+    color: white;
+    font-size: 20px;
+    display: inline;
+    margin-left: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: baseline;
+}
+
+li {
+    width: 100%;
+    background-color: black;
+    height: 40px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+li :hover {
+    width: 80%;
+    background-color: #333;
+    border-radius: 10px;
+    height: 40px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.profileImage {
+    border-radius: 50%;
+    width: 30px;
+}
+
+#more {
+    margin-top: 90px;
+}
+
+.navBar {
+    width: 40%;
+    height: 180px;
+    position: fixed;
+    background-color: black;
+    display: flex;
+    margin-left: 25%;
+    margin-top: 0px;
+    overflow-y: hidden;
+    top: 0;
+}
+
+.storyImageContainer {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(yellow, red, orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px;
+}
+
+.storyImage {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    z-index: 1;
+}
+
+.story {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+span {
+    color: white;
+    background-color: black;
+    margin-top: 3px;
+    margin-right: 15px;
+}
+
+.right {
+    width: 20%;
+    height: 700px;
+    position: static;
+    background-color: black;
+    display: flex;
+    margin-left: 70%;
+    margin-top: 20px;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+}
+
+.rightList {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.suggestImage {
+    border-radius: 50%;
+    width: 45px;
+    margin-right: 10px;
+    justify-content: start;
+}
+
+.user {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.username,
+.linkuser {
+    display: flex;
+    justify-content: start;
+}
+
+.linkuser {
+    color: grey;
+}
+
+.link {
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+.suggest {
+    color: grey;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: end;
+    justify-content: start;
+}
+
+#see {
+    color: white;
+    display: flex;
+    margin-left: 140px;
+    margin-top: auto;
+    margin-bottom: 10px;
+}
+
+#copyRights {
+    color: grey;
+    font-size: 14px;
+}
+
+.center {
+    background-color: #333;
+    width: 30%;
+    height: fit-content;
+    position: static;
+    background-color: black;
+    display: flex;
+    margin-left: 30%;
+    margin-top: -500px;
+    z-index: -5;
+    flex-direction: column;
+}
+
+.post {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+#morePost {
+    color: white;
+    font-size: 20px;
+}
+
+.postPicture {
+    display: flex;
+    width: 100%;
+}
+
+.Image {
+    width: 100%;
+}
+
+.x1lliihq {
+    margin-top: 10px;
+    color: white;
+    margin-right: 10px;
+}
+
+.x1lliihp {
+    margin-top: 10px;
+    color: white;
+    margin-left: 310px;
+}
+
+.caption {
+    color: white;
+    font-size: 15px;
+    margin-left: 0px;
+}
+
+.addComment {
+    color: grey;
+}
+
+input {
+    background-color: black;
+    border: 0;
+    color: white;
+    border-color: black;
+}
